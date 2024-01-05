@@ -8,9 +8,8 @@ interface Ibucket {
 
 const bucketSchema = new mongoose.Schema<Ibucket>({
     userId: {
-        type: mongoose.Types.ObjectId,
+        type: String,
         required: [true, " User id is mandatory input"],
-        ref:"users"
     },
     bucketName: {
         type: String,

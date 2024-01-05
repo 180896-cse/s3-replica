@@ -5,7 +5,10 @@ var bucket = new bucketServices();
 
 const createBucket = async (req:Request, res:Response) => {
     try {
+        // console.log(`req.body${JSON.stringify(req.body)}`);
+        
         await bucket.createBucket(req.body.userId, req.body.bucketName)
+        res.send("Bucket created")
     } catch (error) {
         console.log(error);
         throw error;

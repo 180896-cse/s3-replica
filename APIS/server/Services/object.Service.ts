@@ -46,12 +46,13 @@ export class objectServices {
   async deletedObject(objectId: Types.ObjectId) {
     try {
       const deletedObject = await objectModel.findByIdAndDelete(objectId);
-
+      
+      
       if (!deletedObject) {
         throw new Error("Object not found");
       }
 
-      return deletedObject;
+      return (`deleted successfully ${deletedObject}`);
     } catch (error: any) {
       console.error("Error deleting object:", error.message);
       throw error;

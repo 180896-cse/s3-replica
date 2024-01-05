@@ -3,9 +3,6 @@ import bucketModel from "../Models/bucket.Model";
 export class bucketServices {
   async createBucket(userId: String, bucketName: String) {
     try {
-        // if (!bucketName) {
-        //     throw new Error('Bucket name is required');
-        // }
       const newBucket = new bucketModel({
         userId: userId,
         bucketName: bucketName,

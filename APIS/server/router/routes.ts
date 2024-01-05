@@ -27,7 +27,6 @@ routers.route("/listBucket").get(listBuckets);
 
 //User APIs
 routers.route("/newUser").post(createUser);
-// routers.route("/listBucket").get(listBuckets);
 
 //
 routers.route("/*").get(errPage);
