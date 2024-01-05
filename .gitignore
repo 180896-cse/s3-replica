@@ -6,7 +6,6 @@
 # ignore ALL files in ANY directory named temp
 temp/
 
-*-lock.json
 
 # ignore Node modules Folder
 node_modules
