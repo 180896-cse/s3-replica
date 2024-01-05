@@ -13,5 +13,15 @@ const createUser = async (req:Request, res:Response) => {
     }
 }
 
+const validateUser = async (req:Request, res:Response) =>{
+    try{
+        await user.validateLogin(req.body.userId, req.body.password)
+        res.send("user logged in successfully!!");
+    }catch(error){
+        console.log(error)
+        throw error;
+    }
+}
+
    
-export{createUser};
+export{createUser, validateUser};

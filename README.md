@@ -104,7 +104,15 @@ npm run start
  This will be body JSON params. The password will be stored as hash.
 ```
 
-
+* For Login user in Db
+```
+ http://localhost:3002/userLogin
+ paylod:{
+  "userId":124,
+  "password": "Admin"
+ }
+ This will be body JSON params.
+```
 
 
 ## 

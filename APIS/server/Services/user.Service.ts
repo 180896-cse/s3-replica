@@ -29,9 +29,9 @@ export class userServices {
           return false; // User not found
       }
 
-      // const passwordMatch = await bcrypt.compare(password, userModel.password);
+      const passwordMatch = await bcrypt.compare(password.toString(), user.password);
 
-      return false;
+      return passwordMatch;
   } catch (error) {
       console.error('Error validating login:', error);
       throw error;

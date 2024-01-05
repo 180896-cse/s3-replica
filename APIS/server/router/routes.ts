@@ -8,7 +8,7 @@ import {
   errPage,
 } from "../Controllers/object.Controller";
 import { createBucket, listBuckets } from "../Controllers/bucket.Controller";
-import {createUser} from "../Controllers/user.Controller"
+import {createUser, validateUser} from "../Controllers/user.Controller"
 import multer, { Multer } from "multer";
 const upload = multer({ dest: "uploads/" });
 const routers: Router = express.Router();
@@ -27,6 +27,7 @@ routers.route("/listBucket").get(listBuckets);
 
 //User APIs
 routers.route("/newUser").post(createUser);
+routers.route("/userLogin").post(validateUser);
 
 //
 routers.route("/*").get(errPage);
