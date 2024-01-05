@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import path from "path";
-// reading .env file
-// require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+import dotenv from "dotenv";
+dotenv.config();
 
 interface Idatabase {
   DBconnect(): void;
@@ -9,7 +9,7 @@ interface Idatabase {
 
 export class Database implements Idatabase {
   DBconnect(): void {
-    var db: string = "mongodb+srv://shantanupratap180896:Shan%40754@cluster0.azhwnnq.mongodb.net/?retryWrites=true&w=majority";
+    var db: string = process.env.MONGODB_CONN_STR || "MongourlRequired";
     mongoose
       .connect(db)
       .then(() => {

@@ -10,7 +10,5 @@ temp/
 # ignore Node modules Folder
 node_modules
 
-# ignore .env files
 
-*.env
 
