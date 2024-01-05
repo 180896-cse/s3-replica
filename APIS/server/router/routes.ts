@@ -13,7 +13,16 @@ import multer, { Multer } from "multer";
 const upload = multer({ dest: "uploads/" });
 const routers: Router = express.Router();
 
-//Object APIs
+
+/**
+ * @swagger
+ * /api:
+ *   get:
+ *     description: Get API Health
+ *     responses:
+ *       200:
+ *         description: Success
+ */
 routers.route("/api").get(getHealth);
 routers.route("/get").post(getObject);
 routers.route("/list").get(listObjects);

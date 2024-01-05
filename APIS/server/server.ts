@@ -2,7 +2,7 @@ import express from "express";
 import path from "path";
 import { Database } from "../server/Config/mongoDb.connect";
 import bodyParser from "body-parser"
-
+import { specs, swaggerUi } from "./Config/swagger.config";
 
 // database instance creation and connection function call .
 try {
@@ -18,7 +18,7 @@ const Port = 3002;
 // have to use body parser if we wanna send something to server.
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use("/", require(path.join(__dirname, "./router/routes")));
 
 
