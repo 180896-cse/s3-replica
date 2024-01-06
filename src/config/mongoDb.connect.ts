@@ -3,18 +3,18 @@ import path from "path";
 import dotenv from "dotenv";
 dotenv.config();
 
-interface Idatabase {
+interface iDatabase {
   DBconnect(): void;
 }
 
-export class Database implements Idatabase {
+export class Database implements iDatabase {
   DBconnect(): void {
-    var db: string = process.env.MONGODB_CONN_STR || "MongourlRequired";
+    const db: string = process.env.MONGODB_CONN_STR || "MongourlRequired";
     mongoose
       .connect(db)
       .then(() => {
         // return dbInstance;
-        console.log("connection with MongoDB is sucess!!");
+        console.log("connection with MongoDB is success!!");
       })
       .catch((err) => {
         console.log(`Failed connection with error: ${err}`);

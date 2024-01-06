@@ -1,4 +1,5 @@
-import bucketModel from "../Models/bucket.Model";
+import { Types } from "mongoose";
+import bucketModel from "../models/bucket.model";
 
 export class bucketServices {
   async createBucket(userId: String, bucketName: String) {
@@ -15,9 +16,11 @@ export class bucketServices {
       throw error;
     }
   }
-  async listBucket() {
+  async getAllBucketsOfUserByUserId(userId: string) {
     try {
-      const allObjects = await bucketModel.find({});
+      const allObjects = await bucketModel.find({
+        userId: new Types.ObjectId(userId),
+      });
       return allObjects;
     } catch (error: any) {
       console.error("Error listing buckets:", error.message);
